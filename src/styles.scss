@@ -6,3 +6,19 @@
 body{
     font-family: "Jura", sans-serif;
 }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #fff; 
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: #c0c3c5; 
+    transition: .3s;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #797979; 
+  }

@@ -1,0 +1,96 @@
+<div class="py-16">
+    <div class="container mx-auto">
+        <div class="flex gap-5">
+            <div class="flex gap-3 bg-mainLight border border-darkLight rounded-md px-3">
+                <img class="w-5" src="imgs/search.svg">
+                <input class="focus:outline-none bg-mainLight w-96 text-xl" placeholder="Search">
+            </div>
+            <div class="flex gap-2">
+                <div 
+                (click)="changeDisplayFormat(true)" 
+                [class.bg-darkLight]="displayFormat"
+                [class.bg-mainLight]="!displayFormat"
+                class="border border-darkLight bg-mainLight rounded-md flex items-center justify-center px-5 aspect-square duration-200 hover:brightness-90 cursor-pointer"
+              >
+                <img [src]="displayFormat ? 'imgs/gridDisplayActive.svg' : 'imgs/gridDisplay.svg'">
+              </div>
+              
+              <div 
+                (click)="changeDisplayFormat(false)" 
+                [class.bg-darkLight]="!displayFormat"
+                [class.bg-mainLight]="displayFormat"
+                class="border border-darkLight bg-mainLight rounded-md flex items-center justify-center px-5 aspect-square duration-200 hover:brightness-90 cursor-pointer"
+              >
+                <img [src]="!displayFormat ? 'imgs/listDisplayActive.svg' : 'imgs/listDisplay.svg'">
+              </div>
+            </div>
+        </div>
+
+        <div
+        
+        [class.grid-cols-3]="displayFormat" 
+        [class.grid-cols-1]="!displayFormat" 
+        class="grid grid-cols-3 gap-8 mt-16">
+            @for(pass of passwordsArr ; track pass){
+                <div class="w-full bg-mainLight border border-darkLight rounded-md relative p-7 flex flex-col items-center gap-6 ">
+                    <div (click)="editPassword(pass.password , pass.name , pass.userName , pass.id)" class="absolute w-7 h-7 rounded-md bg-darkerLight right-5 top-5 flex items-center justify-center duration-200 hover:brightness-90 cursor-pointer">
+                        <img src="imgs/edit.svg">
+                    </div>
+                    <div class="text-2xl font-bold">
+                        {{pass.name}}
+                    </div>
+                    <div class="w-full">
+                        <div>User name :</div>
+                        <div class="border border-darkLight p-2 rounded-md flex items-center justify-between">
+                            <div>{{pass.userName}}</div>
+                            <div (click)="copyToClipboard(pass.userName)" class="p-2 rounded-md bg-darkerLight flex items-center justify-center duration-200 hover:brightness-90 cursor-pointer">
+                                <img src="imgs/copy.svg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <div>Password :</div>
+                        <div class="border border-darkLight p-2 rounded-md flex items-center justify-between">
+                            <div>{{pass.password}}</div>
+                            <div (click)="copyToClipboard(pass.password)" class="p-2 rounded-md bg-darkerLight flex items-center justify-center duration-200 hover:brightness-90 cursor-pointer">
+                                <img src="imgs/copy.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<div class="fixed w-full h-full z-10 bg-[#00000021] top-0 backdrop-blur-sm flex items-center justify-center hidden opacity-0 duration-200" #passwordPopup>
+    <div class="fixed w-full h-full z-20" (click)="closePasswordPopup()"></div>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()"  class="bg-mainLight border border-darkLight rounded-md flex flex-col items-center gap-10 p-9 relative z-30 shadow-2xl">
+        <div class="text-2xl font-bold">
+            {{isNew ? 'Create' : 'Edit'}}
+        </div>
+        <div>
+            <div>Name :</div>
+            <input class="focus:outline-none bg-darkLight w-96 rounded-md p-2" formControlName="name" placeholder="Name">
+        </div>
+        <div>
+            <div>Username :</div>
+            <input class="focus:outline-none bg-darkLight w-96 rounded-md p-2" formControlName="userName" placeholder="Username">
+        </div>
+        <div>
+            <div>Password :</div>
+            <input class="focus:outline-none bg-darkLight w-96 rounded-md p-2" formControlName="password" placeholder="Password">
+        </div>
+        <div class="flex gap-8">
+            <button type="submit" class="bg-mainLight border border-darkLight rounded-md px-8 py-1 duration-200 hover:brightness-90 cursor-pointer">
+                {{isNew ? 'Create' : 'Save'}}
+            </button>
+            <div class="bg-mainLight border border-darkLight rounded-md px-8 py-1 duration-200 hover:brightness-90 cursor-pointer" (click)="closePasswordPopup()">Cancel</div>
+        </div>
+    </form>
+</div>
+
+<div class="fixed bottom-2 right-2 flex flex-col items-center bg-[#2dd81e] px-6 py-1 hidden opacity-0 duration-200" #toastCopy>
+    <div class="text-xl font-bold text-white">Copied!</div>
+</div>
