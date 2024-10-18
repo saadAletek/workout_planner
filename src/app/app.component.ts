@@ -3,7 +3,6 @@ import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +10,6 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     RouterOutlet,
     HomeComponent,
-    HeaderComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

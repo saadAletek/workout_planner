@@ -1,11 +1,12 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ReactiveFormsModule ],
+  imports: [ReactiveFormsModule , RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -57,6 +58,27 @@ export class HomeComponent {
     });
   }
 
+  @ViewChild('accountSettings')accountSettings!:ElementRef
+  isAccountSettingsOpen = false
+
+  toggleAccount(){
+    if(this.isAccountSettingsOpen){
+      this.closeAccountSettings()
+    }else{
+      this.openAccountSettings()
+    }
+  }
+
+  openAccountSettings(){
+    this.isAccountSettingsOpen = true
+    this.accountSettings.nativeElement.classList.remove('hidden');
+    setTimeout(() => this.accountSettings.nativeElement.classList.remove('opacity-0') , 200)
+  }
+  closeAccountSettings(){
+    this.isAccountSettingsOpen = false
+    this.accountSettings.nativeElement.classList.add('opacity-0')
+    setTimeout(() => this.accountSettings.nativeElement.classList.add('hidden') , 200)
+  }
 
   onSubmit() {
 

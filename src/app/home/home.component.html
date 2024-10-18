@@ -1,11 +1,49 @@
+<div class="py-5">
+    <div class="container mx-auto flex items-center justify-between">
+        <div class="cursor-pointer" [routerLink]="''">
+            <img class="w-28 " src="imgs/logo.svg">
+        </div>
+        <div class="flex gap-5 relative" >
+            <div class="absolute -bottom-28 right-0 bg-mainLight border border-darkLight rounded-md w-40 hidden opacity-0 duration-200 overflow-hidden" #accountSettings>
+                    <div [routerLink]="'/settings'" (click)="toggleAccount()" class="w-full text-center bg-mainLight hover:brightness-90 duration-200 py-3 cursor-pointer flex gap-2 items-center justify-center">
+                        <img src="imgs/settings.svg">
+                        <div class="font-bold">Settings</div>
+                    </div>
+                    <div class="w-full text-center bg-mainLight hover:brightness-90 duration-200 py-3 cursor-pointer flex gap-2 items-center justify-center">
+                        <img src="imgs/signOut.svg">
+                        <div class="font-bold text-[#E21212]">Sign out</div>
+                    </div>
+            </div>
+            <div 
+            (click)="openPasswordPopup(true)"
+            class="bg-mainLight border border-darkLight rounded-md flex items-center justify-center px-5 aspect-square duration-200 hover:brightness-90 cursor-pointer">
+                <img src="imgs/create.svg">
+            </div>
+            <div (click)="toggleAccount()" class="flex items-center gap-4 bg-mainLight border border-darkLight px-5 py-2 rounded-md duration-200 hover:brightness-90 cursor-pointer">
+                <img class="w-12" src="imgs/Avatar.png">
+                <div class="font-bold text-xl">Saad Aletek</div>
+            </div>
+        </div>
+        <!-- <div class="flex gap-5">
+            <div class="bg-mainLight border border-darkLight rounded-md flex items-center justify-center px-5 aspect-square duration-200 hover:brightness-90 cursor-pointer">
+                <img src="imgs/settings.svg">
+            </div>
+            <div class="flex items-center gap-3 bg-mainLight border border-darkLight px-5 py-3 rounded-md duration-200 hover:brightness-90 cursor-pointer">
+                <img src="imgs/signOut.svg">
+                <div class="font-bold">Sign out</div>
+            </div>
+        </div> -->
+    </div>
+</div>
+
 <div class="py-16">
     <div class="container mx-auto">
         <div class="flex gap-5">
-            <div class="flex gap-3 bg-mainLight border border-darkLight rounded-md px-3">
+            <div class="flex gap-3 bg-mainLight border border-darkLight rounded-md px-3 w-full">
                 <img class="w-5" src="imgs/search.svg">
-                <input class="focus:outline-none bg-mainLight w-96 text-xl" placeholder="Search">
+                <input class="focus:outline-none bg-mainLight w-full py-3 text-xl" placeholder="Search">
             </div>
-            <div class="flex gap-2">
+            <!-- <div class="flex gap-2">
                 <div 
                 (click)="changeDisplayFormat(true)" 
                 [class.bg-darkLight]="displayFormat"
@@ -23,7 +61,7 @@
               >
                 <img [src]="!displayFormat ? 'imgs/listDisplayActive.svg' : 'imgs/listDisplay.svg'">
               </div>
-            </div>
+            </div> -->
         </div>
 
         <div
