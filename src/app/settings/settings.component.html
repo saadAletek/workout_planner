@@ -1,4 +1,4 @@
-<div class="pt-10">
+<div class="pt-32">
     <div class="container mx-auto">
         <div [routerLink]="''" class="bg-mainLight border border-darkLight rounded-md p-3 w-10 h-10 flex items-center justify-center cursor-pointer duration-200 hover:brightness-90">
             <img class="w-3" src="imgs/backArrow.svg">
@@ -9,22 +9,22 @@
         <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="grid xl:grid-cols-2 grid-cols-1 gap-x-20 gap-y-5 py-16">
             <div>
                 <div>First Name :</div>
-                <input class="focus:outline-none bg-darkLight w-full rounded-sm p-2" formControlName="firstName" placeholder="First Name">
+                <input class="bg-mainLight border border-darkLight rounded-md px-3 w-full p-3" formControlName="firstName" placeholder="First Name">
             </div>
             <div>
                 <div>Last Name :</div>
-                <input class="focus:outline-none bg-darkLight w-full rounded-sm p-2" formControlName="lastName" placeholder="Last Name">
+                <input class="bg-mainLight border border-darkLight rounded-md px-3 w-full p-3" formControlName="lastName" placeholder="Last Name">
             </div>
             <div>
                 <div>Image URLs :</div>
-                <input class="focus:outline-none bg-darkLight w-full rounded-sm p-2" formControlName="imageURL" placeholder="Image URLs">
+                <input class="bg-mainLight border border-darkLight rounded-md px-3 w-full p-3" formControlName="imageURL" placeholder="Image URLs">
             </div>
             <div>
                 <div>Password :</div>
-                <input class="focus:outline-none bg-darkLight w-full rounded-sm p-2" formControlName="password" placeholder="Password">
+                <input class="bg-mainLight border border-darkLight rounded-md px-3 w-full p-3" formControlName="password" placeholder="Password">
             </div>
             <div class="xl:col-span-2 col-span-1 flex justify-center py-10">
-            <div class="bg-mainLight border border-darkLight rounded-md px-20 py-3 duration-200 hover:brightness-90 cursor-pointer text-xl" >Save</div>
+            <div [routerLink]="''" class="bg-mainLight border border-darkLight rounded-md px-20 py-3 duration-200 hover:brightness-90 cursor-pointer text-xl" >Save</div>
             </div>
         </form>
     </div>

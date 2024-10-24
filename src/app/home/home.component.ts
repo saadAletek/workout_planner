@@ -1,12 +1,12 @@
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ReactiveFormsModule , RouterModule],
+  imports: [ReactiveFormsModule , RouterModule , FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -14,8 +14,10 @@ export class HomeComponent {
   
   @ViewChild('passwordPopup')passwordPopup!:ElementRef
   @ViewChild('toastCopy')toastCopy!:ElementRef
+  @ViewChild('accountSettings')accountSettings!:ElementRef
 
   formGroup: FormGroup;
+  searchTerm: string = '';  // Added search term variable
 
   password = '';
   name = '' ;
@@ -23,9 +25,6 @@ export class HomeComponent {
   id = 0 ;
 
   isNew : any
-
-  //true = grid   false = list
-  displayFormat = true
 
 
   passwordsArr = [
@@ -43,7 +42,6 @@ export class HomeComponent {
     {id : 3, name: 'Activision2', password: 'hbMmwG3gLnh52' , userName : 'said.elatik.603@gmail.com2' },
     {id : 1, name: 'Steam', password: '07oOMv^@Dn' , userName : 'hamun_yt' },
     {id : 2, name: 'Activision', password: 'hbMmwG3gLnh5' , userName : 'said.elatik.603@gmail.com' },
-    {id : 3, name: 'Activision2', password: 'hbMmwG3gLnh52' , userName : 'said.elatik.603@gmail.com2' },
   ]
 
   constructor(
@@ -58,7 +56,6 @@ export class HomeComponent {
     });
   }
 
-  @ViewChild('accountSettings')accountSettings!:ElementRef
   isAccountSettingsOpen = false
 
   toggleAccount(){
@@ -67,6 +64,16 @@ export class HomeComponent {
     }else{
       this.openAccountSettings()
     }
+  }
+
+  get filteredPasswordsArr() {
+    return this.passwordsArr.filter(pass => 
+      pass.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
+
+  onSearch() {
+    console.log('Searching for:', this.searchTerm);
   }
 
   openAccountSettings(){
@@ -81,11 +88,6 @@ export class HomeComponent {
   }
 
   onSubmit() {
-
-  }
-
-  changeDisplayFormat(b : boolean){
-    this.displayFormat = b
 
   }
 

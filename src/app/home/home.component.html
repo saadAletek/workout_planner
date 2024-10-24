@@ -41,7 +41,11 @@
         <div class="flex gap-5">
             <div class="flex gap-3 bg-mainLight border border-darkLight rounded-md px-3 w-full">
                 <img class="w-5" src="imgs/search.svg">
-                <input class="focus:outline-none bg-mainLight w-full py-3 text-xl" placeholder="Search">
+                <input 
+                class="focus:outline-none bg-mainLight w-full py-3 text-xl" 
+                placeholder="Search" 
+                [(ngModel)]="searchTerm"
+                (input)="onSearch()">
             </div>
             <!-- <div class="flex gap-2">
                 <div 
@@ -64,12 +68,11 @@
             </div> -->
         </div>
 
-        <div
-        
-        [class.grid-cols-3]="displayFormat" 
-        [class.grid-cols-1]="!displayFormat" 
-        class="grid grid-cols-3 gap-8 mt-16">
-            @for(pass of passwordsArr ; track pass){
+        <div class="grid lg:grid-cols-3 grid-cols-1 gap-8 mt-16">
+            @if(filteredPasswordsArr.length === 0){
+                <div class="text-center lg:col-span-3 col-span-1 text-xl">Theres no passwords...</div>
+            }
+            @for(pass of filteredPasswordsArr ; track pass){
                 <div class="w-full bg-mainLight border border-darkLight rounded-md relative p-7 flex flex-col items-center gap-6 ">
                     <div (click)="editPassword(pass.password , pass.name , pass.userName , pass.id)" class="absolute w-7 h-7 rounded-md bg-darkerLight right-5 top-5 flex items-center justify-center duration-200 hover:brightness-90 cursor-pointer">
                         <img src="imgs/edit.svg">
