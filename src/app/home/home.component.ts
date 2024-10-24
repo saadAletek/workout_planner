@@ -30,8 +30,14 @@ export class HomeComponent {
   passwordsArr = [
     {id : 1, name: 'Steam', password: '07oOMv^@Dn' , userName : 'hamun_yt' },
     {id : 2, name: 'Activision', password: 'hbMmwG3gLnh5' , userName : 'said.elatik.603@gmail.com' },
-    {id : 3, name: 'Gmail 1', password: 'said.elatik.603@gmail.com' , userName : 'said elatik 603' },
-    {id : 4, name: 'Gmail 2', password: 'said.elatik.602@gmail.com' , userName : 'said elatik 602' },
+    {id : 3, name: 'Gmail 1', password: 'said elatik 603' , userName : 'said.elatik.603@gmail.com' },
+    {id : 4, name: 'Gmail 1', password: 'said elatik 602' , userName : 'said.elatik.602@gmail.com' },
+    {id : 5, name: 'Instagram', password: 'said.elatik.602@gmail.com' , userName : 'said elatik 602' },
+    {id : 6, name: 'Facebook', password: 'said.elatik.602@gmail.com' , userName : 'said elatik 602' },
+    {id : 7, name: 'Discord', password: 'said.elatik.602@gmail.com' , userName : 'said elatik 602' },
+    {id : 8, name: 'Microsoft', password: 'said.elatik.602@gmail.com' , userName : 'said elatik 602' },
+    {id : 9, name: 'Epic games', password: 'said.elatik.602@gmail.com' , userName : 'said elatik 602' },
+    {id : 9, name: 'Chess.com', password: 'said.elatik.602@gmail.com' , userName : 'said elatik 602' },
   ]
 
   constructor(
