@@ -60,9 +60,9 @@ export class HomeComponent {
     this.document.getElementById(id)?.classList.toggle('hidden')
     this.document.getElementById(`${id}a`)?.classList.toggle('true')
     if(this.document.getElementById(`${id}a`)?.classList.contains('true')){
-      this.document.getElementById(`${id}a`)?.setAttribute('src' , 'imgs/hidePass.svg')
-    }else {
       this.document.getElementById(`${id}a`)?.setAttribute('src' , 'imgs/showPass.svg')
+    }else {
+      this.document.getElementById(`${id}a`)?.setAttribute('src' , 'imgs/hidePass.svg')
     }
   }
 

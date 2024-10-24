@@ -102,7 +102,7 @@
                             <div>{{pass.password}}</div>
                             <div class="flex gap-3 relative z-10">
                                 <div (click)="togglePass(pass.id)" class="p-2 rounded-md bg-darkerLight flex items-center justify-center duration-200 hover:brightness-90 cursor-pointer">
-                                    <img  [id]="pass.id + 'a'" class="w-4 h-4" src="imgs/showPass.svg">
+                                    <img  [id]="pass.id + 'a'" class="w-4 h-4" src="imgs/hidePass.svg">
                                 </div>
                                 <div (click)="copyToClipboard(pass.password)" class="p-2 rounded-md bg-darkerLight flex items-center justify-center duration-200 hover:brightness-90 cursor-pointer">
                                     <img src="imgs/copy.svg">
