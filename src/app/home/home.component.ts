@@ -30,18 +30,8 @@ export class HomeComponent {
   passwordsArr = [
     {id : 1, name: 'Steam', password: '07oOMv^@Dn' , userName : 'hamun_yt' },
     {id : 2, name: 'Activision', password: 'hbMmwG3gLnh5' , userName : 'said.elatik.603@gmail.com' },
-    {id : 3, name: 'Activision2', password: 'hbMmwG3gLnh52' , userName : 'said.elatik.603@gmail.com2' },
-    {id : 1, name: 'Steam', password: '07oOMv^@Dn' , userName : 'hamun_yt' },
-    {id : 2, name: 'Activision', password: 'hbMmwG3gLnh5' , userName : 'said.elatik.603@gmail.com' },
-    {id : 3, name: 'Activision2', password: 'hbMmwG3gLnh52' , userName : 'said.elatik.603@gmail.com2' },
-    {id : 1, name: 'Steam', password: '07oOMv^@Dn' , userName : 'hamun_yt' },
-    {id : 2, name: 'Activision', password: 'hbMmwG3gLnh5' , userName : 'said.elatik.603@gmail.com' },
-    {id : 3, name: 'Activision2', password: 'hbMmwG3gLnh52' , userName : 'said.elatik.603@gmail.com2' },
-    {id : 1, name: 'Steam', password: '07oOMv^@Dn' , userName : 'hamun_yt' },
-    {id : 2, name: 'Activision', password: 'hbMmwG3gLnh5' , userName : 'said.elatik.603@gmail.com' },
-    {id : 3, name: 'Activision2', password: 'hbMmwG3gLnh52' , userName : 'said.elatik.603@gmail.com2' },
-    {id : 1, name: 'Steam', password: '07oOMv^@Dn' , userName : 'hamun_yt' },
-    {id : 2, name: 'Activision', password: 'hbMmwG3gLnh5' , userName : 'said.elatik.603@gmail.com' },
+    {id : 3, name: 'Gmail 1', password: 'said.elatik.603@gmail.com' , userName : 'said elatik 603' },
+    {id : 4, name: 'Gmail 2', password: 'said.elatik.602@gmail.com' , userName : 'said elatik 602' },
   ]
 
   constructor(
@@ -63,6 +53,16 @@ export class HomeComponent {
       this.closeAccountSettings()
     }else{
       this.openAccountSettings()
+    }
+  }
+
+  togglePass(id : any){
+    this.document.getElementById(id)?.classList.toggle('hidden')
+    this.document.getElementById(`${id}a`)?.classList.toggle('true')
+    if(this.document.getElementById(`${id}a`)?.classList.contains('true')){
+      this.document.getElementById(`${id}a`)?.setAttribute('src' , 'imgs/hidePass.svg')
+    }else {
+      this.document.getElementById(`${id}a`)?.setAttribute('src' , 'imgs/showPass.svg')
     }
   }
 

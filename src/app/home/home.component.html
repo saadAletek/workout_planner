@@ -41,7 +41,7 @@
         <div class="flex gap-5">
             <div class="flex gap-3 bg-mainLight border border-darkLight rounded-md px-3 w-full">
                 <img class="w-5" src="imgs/search.svg">
-                <input 
+                <input
                 class="focus:outline-none bg-mainLight w-full py-3 text-xl" 
                 placeholder="Search" 
                 [(ngModel)]="searchTerm"
@@ -91,10 +91,22 @@
                     </div>
                     <div class="w-full">
                         <div>Password :</div>
-                        <div class="border border-darkLight p-2 rounded-md flex items-center justify-between">
+                        <div class="border border-darkLight p-2 rounded-md flex items-center justify-between relative">
+
+
+                            <div [id]="pass.id" class="flex items-center justify-between text-2xl font-bold font-serif absolute bg-mainLight w-full px-2 top-1/2 -translate-y-1/2 left-0">
+                                <div>••••••••</div>
+                            </div>
+
+
                             <div>{{pass.password}}</div>
-                            <div (click)="copyToClipboard(pass.password)" class="p-2 rounded-md bg-darkerLight flex items-center justify-center duration-200 hover:brightness-90 cursor-pointer">
-                                <img src="imgs/copy.svg">
+                            <div class="flex gap-3 relative z-10">
+                                <div (click)="togglePass(pass.id)" class="p-2 rounded-md bg-darkerLight flex items-center justify-center duration-200 hover:brightness-90 cursor-pointer">
+                                    <img  [id]="pass.id + 'a'" class="w-4 h-4" src="imgs/showPass.svg">
+                                </div>
+                                <div (click)="copyToClipboard(pass.password)" class="p-2 rounded-md bg-darkerLight flex items-center justify-center duration-200 hover:brightness-90 cursor-pointer">
+                                    <img src="imgs/copy.svg">
+                                </div>
                             </div>
                         </div>
                     </div>
