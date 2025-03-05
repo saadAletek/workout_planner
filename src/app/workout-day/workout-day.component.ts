@@ -130,6 +130,11 @@ export class WorkoutDayComponent {
             reps : 2,
             sets : 1
           },
+          {
+            name : 'Lower Back Hyperextension',
+            reps : 2,
+            sets : 2
+          },
         ]
       },
       {
